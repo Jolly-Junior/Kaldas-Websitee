@@ -180,7 +180,7 @@ export default function Gallery() {
           <motion.div
             id="gallery-grid"
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8"
           >
             <AnimatePresence mode="popLayout">
               {filteredGallery.map((item, index) => (
@@ -193,7 +193,7 @@ export default function Gallery() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   onClick={() => openLightbox(item.id)}
-                  className="group relative rounded-2xl overflow-hidden aspect-square shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-brand-charcoal/5 dark:border-brand-ivory/5"
+                  className="group relative rounded-xl md:rounded-2xl overflow-hidden aspect-square shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-brand-charcoal/5 dark:border-brand-ivory/5"
                 >
                   <img
                     id={`gallery-img-${item.id}`}
@@ -204,16 +204,16 @@ export default function Gallery() {
                   />
                   {/* Play video overlay icon if it has a videoUrl */}
                   {item.videoUrl && (
-                    <div className="absolute top-4 right-4 bg-brand-green/80 dark:bg-brand-gold/80 text-brand-ivory dark:text-brand-green p-2 rounded-full backdrop-blur-xs shadow-md z-10 flex items-center justify-center animate-pulse">
-                      <Play size={14} fill="currentColor" />
+                    <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-brand-green/80 dark:bg-brand-gold/80 text-brand-ivory dark:text-brand-green p-1.5 md:p-2 rounded-full backdrop-blur-xs shadow-md z-10 flex items-center justify-center animate-pulse">
+                      <Play size={10} className="md:size-[14px]" fill="currentColor" />
                     </div>
                   )}
                   {/* Frosted details overlay */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-green/90 via-brand-green/60 to-transparent p-6 pt-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end">
-                    <span className="font-sans text-[10px] tracking-widest uppercase font-semibold text-brand-gold mb-1">
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-green/95 via-brand-green/70 to-transparent p-3 pt-8 md:p-6 md:pt-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end">
+                    <span className="font-sans text-[8px] md:text-[10px] tracking-widest uppercase font-bold text-brand-gold mb-0.5 md:mb-1">
                       {item.category}
                     </span>
-                    <h4 className="font-serif text-base md:text-lg text-brand-ivory leading-snug font-normal">
+                    <h4 className="font-serif text-xs sm:text-base md:text-lg text-brand-ivory leading-snug font-medium">
                       {item.title}
                     </h4>
                   </div>

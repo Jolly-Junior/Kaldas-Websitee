@@ -82,7 +82,7 @@ export default function Services({ onSelectService }: ServicesProps) {
         <motion.div
           id="services-grid"
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10"
         >
           <AnimatePresence mode="popLayout">
             {filteredServices.map((service, index) => {
@@ -92,14 +92,14 @@ export default function Services({ onSelectService }: ServicesProps) {
                   id={`service-card-${service.id}`}
                   key={service.id}
                   layout
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="group frosted-card rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between"
+                  className="group frosted-card rounded-xl md:rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between"
                 >
                   {/* Card Thumbnail Container */}
-                  <div className="relative aspect-4/3 overflow-hidden">
+                  <div className="relative aspect-[16/10] sm:aspect-4/3 overflow-hidden">
                     <img
                       id={`service-img-${service.id}`}
                       src={service.image}
@@ -110,40 +110,40 @@ export default function Services({ onSelectService }: ServicesProps) {
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/70 via-transparent to-transparent opacity-40 group-hover:opacity-10 transition-opacity duration-500" />
                     
                     {/* Category Tag */}
-                    <span className="absolute top-4 left-4 bg-brand-green/95 dark:bg-brand-gold/95 backdrop-blur-xs text-brand-ivory dark:text-brand-green text-[10px] tracking-widest uppercase font-semibold px-4 py-1.5 rounded-full border border-brand-gold/20">
+                    <span className="absolute top-2 left-2 md:top-3 md:left-3 bg-brand-green/95 dark:bg-brand-gold/95 backdrop-blur-xs text-brand-ivory dark:text-brand-green text-[8px] md:text-[9px] tracking-widest uppercase font-semibold px-2 py-0.5 md:px-3 md:py-1 rounded-full border border-brand-gold/20">
                       {service.category}
                     </span>
                   </div>
 
                   {/* Card Info */}
-                  <div className="p-8 flex-1 flex flex-col justify-between">
+                  <div className="p-3 sm:p-5 md:p-8 flex-1 flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center space-x-3 mb-4 text-brand-gold">
-                        <div className="p-2.5 bg-brand-gold/10 dark:bg-brand-gold/5 rounded-xl border border-brand-gold/15">
-                          <IconComponent size={18} />
+                      <div className="flex items-center space-x-1.5 md:space-x-2.5 mb-2 md:mb-4 text-brand-gold">
+                        <div className="p-1 md:p-2 bg-brand-gold/10 dark:bg-brand-gold/5 rounded-md md:rounded-lg border border-brand-gold/15">
+                          <IconComponent size={12} className="md:size-[16px]" />
                         </div>
-                        <span className="font-sans text-[11px] tracking-widest uppercase font-semibold text-brand-accent-gold">
+                        <span className="font-sans text-[8px] md:text-[10px] tracking-widest uppercase font-semibold text-brand-accent-gold">
                           Signature Ritual
                         </span>
                       </div>
 
-                       <h3 className="font-serif text-xl md:text-2xl font-semibold text-brand-green dark:text-brand-ivory mb-3 group-hover:text-brand-gold transition-colors duration-300">
+                       <h3 className="font-serif text-sm sm:text-lg md:text-2xl font-semibold text-brand-green dark:text-brand-ivory mb-1.5 md:mb-3 group-hover:text-brand-gold transition-colors duration-300 leading-snug">
                         {service.name}
                       </h3>
 
-                      <p className="font-sans text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed font-medium mb-6">
+                      <p className="font-sans text-[10px] sm:text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-snug sm:leading-relaxed font-medium mb-3 md:mb-6 line-clamp-3 md:line-clamp-none">
                         {service.description}
                       </p>
                     </div>
 
                     {/* Metadata & CTAs */}
                     <div>
-                      <div className="flex justify-between items-center border-t border-brand-charcoal/20 dark:border-brand-ivory/20 pt-5 mb-6">
-                        <div className="flex items-center space-x-2 text-brand-charcoal dark:text-brand-ivory">
-                          <Clock size={14} className="text-brand-gold" />
-                          <span className="font-sans text-xs font-semibold">{service.duration}</span>
+                      <div className="flex justify-between items-center border-t border-brand-charcoal/20 dark:border-brand-ivory/20 pt-2.5 mb-3 md:pt-5 md:mb-6">
+                        <div className="flex items-center space-x-1 md:space-x-2 text-brand-charcoal dark:text-brand-ivory">
+                          <Clock size={11} className="text-brand-gold md:size-[13px]" />
+                          <span className="font-sans text-[10px] sm:text-xs font-semibold">{service.duration}</span>
                         </div>
-                        <div className="flex items-center space-x-1 font-sans text-sm font-bold text-brand-green dark:text-brand-gold">
+                        <div className="flex items-center space-x-1 font-sans text-xs sm:text-sm md:text-base font-bold text-brand-green dark:text-brand-gold">
                           <span>{service.price}</span>
                         </div>
                       </div>
@@ -151,10 +151,10 @@ export default function Services({ onSelectService }: ServicesProps) {
                       <button
                         id={`service-book-btn-${service.id}`}
                         onClick={() => onSelectService(service.id)}
-                        className="w-full flex items-center justify-center space-x-2 bg-brand-green/5 dark:bg-brand-ivory/5 hover:bg-brand-green dark:hover:bg-brand-gold text-brand-green dark:text-brand-ivory hover:text-brand-ivory dark:hover:text-brand-green border border-brand-green/10 dark:border-brand-ivory/10 hover:border-transparent dark:hover:border-transparent font-sans text-xs tracking-widest uppercase font-bold py-3.5 rounded-full transition-all duration-300 cursor-pointer"
+                        className="w-full flex items-center justify-center space-x-1.5 bg-brand-green/5 dark:bg-brand-ivory/5 hover:bg-brand-green dark:hover:bg-brand-gold text-brand-green dark:text-brand-ivory hover:text-brand-ivory dark:hover:text-brand-green border border-brand-green/10 dark:border-brand-ivory/10 hover:border-transparent dark:hover:border-transparent font-sans text-[9px] sm:text-xs tracking-widest uppercase font-bold py-2 md:py-3.5 rounded-full transition-all duration-300 cursor-pointer"
                       >
                         <span>Book Treatment</span>
-                        <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform md:size-[12px]" />
                       </button>
                     </div>
                   </div>

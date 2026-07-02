@@ -104,7 +104,7 @@ export default function Hero({ onNavigate }: HeroProps) {
         >
           <Sparkles size={9} className="text-brand-gold animate-pulse" />
           <span className="font-sans text-[8px] tracking-[0.25em] uppercase font-bold text-brand-gold">
-            KALDĀS BEAUTY ATELIER
+            KALDĀS BEAUTY SALON
           </span>
         </motion.div>
 

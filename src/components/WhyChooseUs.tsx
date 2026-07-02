@@ -94,8 +94,8 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        {/* Feature Cards Grid (Compact P-5 cards) */}
-        <div id="why-features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Feature Cards Grid (Compact P-3/5 cards) */}
+        <div id="why-features-grid" className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
           {features.map((feat, index) => {
             const Icon = feat.icon;
             return (
@@ -106,17 +106,17 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="group p-5 bg-white/95 dark:bg-brand-green/80 border-2 border-brand-gold/30 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="group p-3 sm:p-5 bg-white/95 dark:bg-brand-green/80 border-2 border-brand-gold/30 rounded-xl md:rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-9 h-9 bg-brand-green/10 dark:bg-brand-gold/20 text-brand-green dark:text-brand-gold rounded-lg flex items-center justify-center border border-brand-green/40 dark:border-brand-gold/40 mb-4 group-hover:bg-brand-green group-hover:text-brand-ivory dark:group-hover:bg-brand-gold dark:group-hover:text-brand-green transition-all duration-500">
-                  <Icon size={16} />
+                <div className="w-8 h-8 md:w-9 md:h-9 bg-brand-green/10 dark:bg-brand-gold/20 text-brand-green dark:text-brand-gold rounded-lg flex items-center justify-center border border-brand-green/40 dark:border-brand-gold/40 mb-3 md:mb-4 group-hover:bg-brand-green group-hover:text-brand-ivory dark:group-hover:bg-brand-gold dark:group-hover:text-brand-green transition-all duration-500">
+                  <Icon size={14} className="md:size-[16px]" />
                 </div>
                 
-                <h3 className="font-serif text-base font-bold text-neutral-950 dark:text-brand-ivory mb-2 group-hover:text-brand-gold transition-colors duration-300">
+                <h3 className="font-serif text-sm md:text-base font-bold text-neutral-950 dark:text-brand-ivory mb-1 md:mb-2 group-hover:text-brand-gold transition-colors duration-300">
                   {feat.title}
                 </h3>
                 
-                <p className="font-sans text-xs md:text-sm text-neutral-900 dark:text-white leading-relaxed font-normal">
+                <p className="font-sans text-[10px] sm:text-xs md:text-sm text-neutral-900 dark:text-white leading-snug sm:leading-relaxed font-normal">
                   {feat.description}
                 </p>
               </motion.div>

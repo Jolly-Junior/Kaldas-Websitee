@@ -42,7 +42,7 @@ export default function Testimonials() {
         </div>
 
         {/* Dynamic Card Stage */}
-        <div className="relative glassmorphism rounded-3xl p-8 md:p-14 shadow-xl">
+        <div className="relative glassmorphism rounded-2xl md:rounded-3xl p-5 sm:p-8 md:p-14 shadow-xl">
           <div className="absolute top-0 left-0 right-0 h-1 bg-brand-gold" />
           
           <AnimatePresence mode="wait">
@@ -53,11 +53,11 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12"
+              className="flex flex-col md:flex-row md:items-center gap-5 md:gap-12"
             >
               {/* Profile Photo */}
               <div className="relative shrink-0 flex justify-center md:block">
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-brand-gold shadow-md">
+                <div className="w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-brand-gold shadow-md">
                   <img
                     id={`testimonial-avatar-${current.id}`}
                     src={current.image}
@@ -67,29 +67,29 @@ export default function Testimonials() {
                   />
                 </div>
                 {/* Visual quote accent mark */}
-                <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-brand-green font-serif text-3xl font-bold select-none leading-none shadow-md">
+                <div className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 w-8 h-8 md:w-10 md:h-10 bg-brand-gold rounded-full flex items-center justify-center text-brand-green font-serif text-2xl md:text-3xl font-bold select-none leading-none shadow-md">
                   “
                 </div>
               </div>
 
               {/* Review Text */}
-              <div className="space-y-4 flex-1">
+              <div className="space-y-3 md:space-y-4 flex-1">
                 {/* 5 Stars */}
                 <div className="flex space-x-1 justify-center md:justify-start">
                   {[...Array(current.rating)].map((_, i) => (
-                    <Star key={i} size={15} className="text-brand-gold fill-brand-gold" />
+                    <Star key={i} size={14} className="text-brand-gold fill-brand-gold" />
                   ))}
                 </div>
 
-                <p className="font-sans text-sm md:text-lg text-brand-charcoal/85 dark:text-brand-ivory/85 leading-relaxed font-light italic text-center md:text-left">
+                <p className="font-sans text-xs sm:text-sm md:text-lg text-brand-charcoal/85 dark:text-brand-ivory/85 leading-relaxed font-light italic text-center md:text-left">
                   "{current.review}"
                 </p>
 
                 <div className="text-center md:text-left">
-                  <h4 className="font-serif text-lg font-normal text-brand-green dark:text-brand-ivory">
+                  <h4 className="font-serif text-base md:text-lg font-normal text-brand-green dark:text-brand-ivory">
                     {current.name}
                   </h4>
-                  <span className="font-sans text-[11px] tracking-widest uppercase text-brand-accent-gold font-medium">
+                  <span className="font-sans text-[10px] md:text-[11px] tracking-widest uppercase text-brand-accent-gold font-medium">
                     {current.role}
                   </span>
                 </div>
@@ -98,7 +98,7 @@ export default function Testimonials() {
           </AnimatePresence>
 
           {/* Indicators & controls footer */}
-          <div className="flex items-center justify-between border-t border-brand-charcoal/5 dark:border-brand-ivory/5 pt-8 mt-10">
+          <div className="flex items-center justify-between border-t border-brand-charcoal/5 dark:border-brand-ivory/5 pt-5 mt-6 md:pt-8 md:mt-10">
             {/* Dots */}
             <div className="flex space-x-2">
               {TESTIMONIALS.map((t, idx) => (

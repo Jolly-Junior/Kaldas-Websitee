@@ -129,7 +129,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         {/* 3. Bottom Credits Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center border-t border-brand-gold/10 pt-8">
           <span className="font-sans text-xs tracking-wider text-brand-beige/65">
-            &copy; 2026 Kaldas Beauty Atelier. All Rights Reserved.
+            &copy; 2026 Kaldas Beauty Salon. All Rights Reserved.
           </span>
           <span className="font-sans text-xs tracking-wider text-brand-beige/65">
             Design and Developed by <span className="text-brand-gold font-medium">Viavela Technology</span>

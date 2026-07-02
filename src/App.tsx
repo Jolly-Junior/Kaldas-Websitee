@@ -9,7 +9,7 @@ import Testimonials from './components/Testimonials';
 import Booking from './components/Booking';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { ArrowUp, MessageSquare, Sparkles } from 'lucide-react';
+import { ArrowUp, Sparkles, Phone, MapPin, X } from 'lucide-react';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,6 +17,7 @@ export default function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [selectedServiceId, setSelectedServiceId] = useState('');
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   // 1. Initial premium loading sequence
   useEffect(() => {
@@ -59,6 +60,10 @@ export default function App() {
 
   // 4. Smooth scroll-to-section navigation with custom offset
   const handleNavigate = (sectionId: string) => {
+    if (sectionId === 'booking') {
+      setIsBookingModalOpen(true);
+      return;
+    }
     const element = document.getElementById(sectionId);
     if (element) {
       const offset = 80; // height of our fixed navigation
@@ -77,10 +82,7 @@ export default function App() {
   // 5. Connect Treatment booking buttons
   const handleSelectService = (serviceId: string) => {
     setSelectedServiceId(serviceId);
-    // Smoothly scroll to booking container
-    setTimeout(() => {
-      handleNavigate('booking');
-    }, 100);
+    setIsBookingModalOpen(true);
   };
 
   const handleBackToTop = () => {
@@ -169,24 +171,7 @@ export default function App() {
 
             {/* Interactive Floating Helpers */}
             
-            {/* 1. WhatsApp floating dispatch button */}
-            <motion.a
-              id="whatsapp-floating-btn"
-              href="https://wa.me/4533124580?text=Hello!%20I%20am%2520interested%20in%20booking%20a%20luxury%20treatment%20at%20Kaldas%20Atelier."
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 2, duration: 0.5 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="fixed bottom-6 left-6 z-40 bg-brand-gold hover:bg-brand-accent-gold text-brand-green p-4 rounded-full shadow-2xl flex items-center justify-center cursor-pointer border border-brand-green/20"
-              aria-label="Connect via WhatsApp"
-            >
-              <MessageSquare size={20} className="fill-brand-green" />
-            </motion.a>
-
-            {/* 2. Scroll Back to Top Floating button */}
+            {/* 1. Scroll Back to Top Floating button */}
             <AnimatePresence>
               {showBackToTop && (
                 <motion.button
@@ -202,6 +187,93 @@ export default function App() {
                 >
                   <ArrowUp size={18} />
                 </motion.button>
+              )}
+            </AnimatePresence>
+
+            {/* 3. Luxury Quick-Call Booking Modal */}
+            <AnimatePresence>
+              {isBookingModalOpen && (
+                <div id="booking-modal-overlay" className="fixed inset-0 z-55 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
+                  <motion.div
+                    id="booking-modal-card"
+                    initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                    transition={{ duration: 0.4, ease: 'easeOut' }}
+                    className="relative w-full max-w-md bg-white dark:bg-brand-green/95 border-2 border-brand-gold/40 rounded-3xl p-8 shadow-2xl overflow-hidden text-neutral-950 dark:text-brand-ivory"
+                  >
+                    {/* Gold Header accent */}
+                    <div className="absolute top-0 left-0 right-0 h-1.5 bg-brand-gold" />
+                    
+                    {/* Close Button */}
+                    <button
+                      id="booking-modal-close"
+                      onClick={() => setIsBookingModalOpen(false)}
+                      className="absolute top-4 right-4 p-2 text-brand-charcoal/40 dark:text-brand-ivory/50 hover:text-brand-gold dark:hover:text-brand-gold hover:bg-black/5 dark:hover:bg-white/5 rounded-full cursor-pointer transition-colors"
+                      aria-label="Close modal"
+                    >
+                      <X size={18} />
+                    </button>
+
+                    <div className="text-center mb-6">
+                      <span className="font-sans text-[9px] tracking-[0.25em] text-brand-gold uppercase font-bold mb-1.5 block">
+                        FAST TELEPHONE BOOKING
+                      </span>
+                      <h3 className="font-serif text-2xl font-normal text-neutral-950 dark:text-brand-ivory">
+                        Kaldas Beauty Salon
+                      </h3>
+                    </div>
+
+                    {/* Centered Phone Calling card */}
+                    <div className="bg-brand-beige/20 dark:bg-white/5 border border-brand-gold/25 rounded-2xl p-6 text-center mb-6">
+                      <div className="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center border border-brand-gold/20 mx-auto mb-4">
+                        <Phone size={20} className="animate-pulse" />
+                      </div>
+                      
+                      <span className="font-sans text-[10px] tracking-wider text-brand-charcoal/50 dark:text-brand-ivory/50 uppercase font-semibold block mb-1">
+                        RECEPTION NUMBER
+                      </span>
+                      <a
+                        href="tel:0970436373"
+                        className="font-mono text-2xl font-bold text-neutral-950 dark:text-brand-gold hover:underline"
+                      >
+                        0970436373
+                      </a>
+                    </div>
+
+                    {/* Address details */}
+                    <div className="flex items-start space-x-3 text-left mb-6 px-1">
+                      <MapPin size={16} className="text-brand-gold shrink-0 mt-0.5" />
+                      <div>
+                        <span className="font-sans text-[9px] tracking-wider text-brand-charcoal/50 dark:text-brand-ivory/50 uppercase font-semibold block">
+                          SALON ADDRESS
+                        </span>
+                        <p className="font-sans text-xs font-medium text-brand-charcoal dark:text-brand-ivory leading-relaxed">
+                          📍 Medhanyalem mall 5th floor, Addis Ababa, Ethiopia
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* CTA and close */}
+                    <div className="space-y-3">
+                      <a
+                        id="modal-dial-btn"
+                        href="tel:0970436373"
+                        className="w-full bg-brand-green dark:bg-brand-gold hover:bg-brand-accent-gold dark:hover:bg-brand-ivory text-brand-ivory dark:text-brand-green hover:text-brand-ivory dark:hover:text-brand-green font-sans text-xs tracking-widest uppercase font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 animate-pulse"
+                      >
+                        <span>Dial Now</span>
+                      </a>
+                      
+                      <button
+                        id="modal-cancel-btn"
+                        onClick={() => setIsBookingModalOpen(false)}
+                        className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-brand-charcoal/60 dark:text-brand-ivory/60 hover:text-neutral-950 dark:hover:text-brand-ivory border border-brand-charcoal/10 dark:border-brand-ivory/15 font-sans text-xs tracking-widest uppercase font-bold py-3.5 rounded-xl transition-all duration-300"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </motion.div>
+                </div>
               )}
             </AnimatePresence>
 
