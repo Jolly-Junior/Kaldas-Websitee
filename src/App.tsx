@@ -150,9 +150,9 @@ export default function App() {
             <main id="main-sections" className="relative">
               <Hero onNavigate={handleNavigate} />
               
-              <Services onSelectService={handleSelectService} />
-              
               <Gallery />
+              
+              <Services onSelectService={handleSelectService} />
               
               <WhyChooseUs />
               

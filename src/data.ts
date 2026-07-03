@@ -13,7 +13,7 @@ export const SERVICES: Service[] = [
     price: '$120 - $350',
     category: 'hair',
     iconName: 'Scissors',
-    image: 'https://www.instagram.com/p/DBGyuLjowWV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
+    image: '/src/assets/images/regenerated_image_1783087226828.jpg'
   },
   {
     id: 'bridal-makeup',
@@ -241,16 +241,16 @@ export const BEFORE_AFTER: BeforeAfterItem[] = [
     id: 'ba1',
     title: 'Keratin Restore & Parisian Balayage',
     description: 'Revitalized dry, colored hair with structured nourishment and seamless blonde highlights.',
-    beforeImage: 'https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80',
+    beforeImage: '/src/assets/images/regenerated_image_1783087217960.jpg',
+    afterImage: '/src/assets/images/regenerated_image_1783087219606.jpg',
     category: 'Hair'
   },
   {
     id: 'ba2',
     title: 'Sovereign Hydra-Radiance Facial',
     description: 'Clinical hydration and botanical enzymes visibly smoothed skin texture and redness.',
-    beforeImage: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
+    beforeImage: '/src/assets/images/regenerated_image_1783087225447.jpg',
+    afterImage: '/src/assets/images/regenerated_image_1783087221842.jpg',
     category: 'Skincare'
   }
 ];
