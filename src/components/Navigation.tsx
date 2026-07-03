@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import KaldasLogo from './KaldasLogo';
 
 interface NavigationProps {
   darkMode: boolean;
@@ -47,8 +48,9 @@ export default function Navigation({ darkMode, toggleDarkMode, onNavigate }: Nav
           <button 
             id="nav-logo"
             onClick={() => handleItemClick('home')} 
-            className="flex items-center space-x-1.5 md:space-x-2 text-left cursor-pointer group"
+            className="flex items-center space-x-2 md:space-x-3 text-left cursor-pointer group"
           >
+            <KaldasLogo className="w-[70px] h-[70px] text-brand-gold group-hover:text-brand-beige transition-colors duration-300 shrink-0" />
             <span className="font-serif text-xl md:text-2xl lg:text-3xl font-semibold tracking-wider text-brand-gold dark:text-brand-gold group-hover:text-brand-beige transition-colors duration-300">
               KALDĀS
             </span>
