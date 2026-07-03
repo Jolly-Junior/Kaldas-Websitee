@@ -125,7 +125,7 @@ export default function App() {
               <div className="flex items-center space-x-2 border-t border-brand-gold/30 pt-3">
                 <Sparkles size={14} className="text-brand-gold animate-pulse" />
                 <span className="font-sans text-xs tracking-[0.3em] text-brand-beige uppercase font-medium">
-                  Beauty Atelier
+                  Beauty Salon
                 </span>
               </div>
             </motion.div>

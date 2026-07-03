@@ -84,7 +84,7 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-8">
             <div className="bg-white dark:bg-brand-green/10 rounded-3xl border border-brand-charcoal/5 dark:border-brand-ivory/5 p-8 md:p-10 shadow-xs space-y-6">
               <h3 className="font-serif text-2xl font-normal text-brand-green dark:text-brand-ivory mb-4">
-                The Atelier
+                The Salon
               </h3>
               
               <div className="space-y-6">
