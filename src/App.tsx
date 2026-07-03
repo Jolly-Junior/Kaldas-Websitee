@@ -152,9 +152,9 @@ export default function App() {
               
               <Services onSelectService={handleSelectService} />
               
-              <WhyChooseUs />
-              
               <Gallery />
+              
+              <WhyChooseUs />
               
               <Testimonials />
               

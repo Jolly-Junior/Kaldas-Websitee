@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SERVICES } from '../data';
 import { Service } from '../types';
-import { Scissors, Sparkles, Flower2, Paintbrush, Hand, Eye, Layers, Clock, DollarSign, ArrowRight } from 'lucide-react';
+import { Scissors, Sparkles, Flower2, Paintbrush, Hand, Eye, Layers, ArrowRight } from 'lucide-react';
 
 // Dynamic icon resolver helper
 const IconMap: { [key: string]: any } = {
@@ -136,18 +136,8 @@ export default function Services({ onSelectService }: ServicesProps) {
                       </p>
                     </div>
 
-                    {/* Metadata & CTAs */}
-                    <div>
-                      <div className="flex justify-between items-center border-t border-brand-charcoal/20 dark:border-brand-ivory/20 pt-2.5 mb-3 md:pt-5 md:mb-6">
-                        <div className="flex items-center space-x-1 md:space-x-2 text-brand-charcoal dark:text-brand-ivory">
-                          <Clock size={11} className="text-brand-gold md:size-[13px]" />
-                          <span className="font-sans text-[10px] sm:text-xs font-semibold">{service.duration}</span>
-                        </div>
-                        <div className="flex items-center space-x-1 font-sans text-xs sm:text-sm md:text-base font-bold text-brand-green dark:text-brand-gold">
-                          <span>{service.price}</span>
-                        </div>
-                      </div>
-
+                    {/* CTAs */}
+                    <div className="pt-2">
                       <button
                         id={`service-book-btn-${service.id}`}
                         onClick={() => onSelectService(service.id)}
